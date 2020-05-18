@@ -1,0 +1,63 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Carte de restaurant",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 9.5.0-9.5.99\n",
+            "disableLocalization": false,
+            "disableVersioning": true,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "9.5.0-9.5.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "restaurant_ldvcdhtl",
+        "name": "Restaurant LDVCDHTL",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "",
+                "email": "dilan.hassan@etu.u-bordeaux.fr",
+                "name": "Dilan Hassan",
+                "role": "Developer"
+            },
+            {
+                "company": "",
+                "email": "valentin.carrichon@etu.u-bordeaux.fr",
+                "name": "Valentin Carrichon",
+                "role": "Developer"
+            },
+            {
+                "company": "",
+                "email": "theau.leclere@etu.u-bordeaux.fr",
+                "name": "Th\u00e9au Leclere",
+                "role": "Developer"
+            },
+            {
+                "company": "",
+                "email": "laurie.dumery@etu.u-bordeaux.fr",
+                "name": "Laurie Dumery",
+                "role": "Developer"
+            },
+            {
+                "company": "",
+                "email": "david.jacquelin@etu.u-bordeaux.fr",
+                "name": "David Jacquelin",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Ldvcdhtl"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2020-05-18 03:59",
+        "extension_builder_version": "9.10.2",
+        "be_user": " (1)"
+    }
+}

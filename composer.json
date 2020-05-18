@@ -1,0 +1,23 @@
+{
+    "name": "ldvcdhtl/restaurant-ldvcdhtl",
+    "type": "typo3-cms-extension",
+    "description": "Carte de restaurant",
+    "authors": [],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ldvcdhtl\\RestaurantLdvcdhtl\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ldvcdhtl\\RestaurantLdvcdhtl\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "ldvcdhtl/restaurant-ldvcdhtl": "self.version",
+        "typo3-ter/restaurant-ldvcdhtl": "self.version"
+    }
+}
