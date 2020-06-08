@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-06-08T14:01:36Z" product-name="restaurant_ldvcdhtl">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>Nom</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>Prix</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="service.description">
+				<source>Service</source>
+			</trans-unit>
+			<trans-unit id="available.description">
+				<source>Disponibilité</source>
+			</trans-unit>
+			<trans-unit id="discount.description">
+				<source>Réduction</source>
+			</trans-unit>
+			<trans-unit id="entries.description">
+				<source>Les entrées</source>
+			</trans-unit>
+			<trans-unit id="main_dishes.description">
+				<source>Plat</source>
+			</trans-unit>
+			<trans-unit id="cheeses.description">
+				<source>Fromage</source>
+			</trans-unit>
+			<trans-unit id="desserts.description">
+				<source>desserts</source>
+			</trans-unit>
+			<trans-unit id="drinks.description">
+				<source>boissons</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
