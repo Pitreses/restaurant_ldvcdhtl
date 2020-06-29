@@ -13,11 +13,12 @@
 	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 	<f:section name="content">
+		<script src="https://kit.fontawesome.com/7dabd16bb0.js" crossorigin="anonymous"></script>
 		<h1>Listing for Menu</h1>
 
 		<f:flashMessages />
 
-		<table  class="tx_restaurantldvcdhtl" >
+		<table  class="tx_restaurantldvcdhtl table" >
 			<tr>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_menu.name" /></th>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_menu.price" /></th>
@@ -32,16 +33,33 @@
 			<f:for each="{menus}" as="menu">
 				<tr>
 					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.name}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.price}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.description}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.service}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.available}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{menu : menu}"> {menu.discount}</f:link.action></td>
+					<td> {menu.price} €</td>
+					<td> {menu.description -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</td>
+					<td> {menu.service}</td>
+					<td> 
+						<f:if condition="{menu.available}">
+							<i class="fas fa-check"></i>
+						</f:if>
+					</td>
+					<td> 
+						<f:if condition="{menu.discount} == 0">
+							<f:then>
+								<i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								{menu.discount} %
+							</f:else>
+						</f:if>
+					</td>
+					
 					<td><f:link.action action="edit" arguments="{menu : menu}">Edit</f:link.action></td>
 					<td><f:link.action action="delete" arguments="{menu : menu}">Delete</f:link.action></td>
 				</tr>
 			</f:for>
 		</table>
+
+		
 
 		<f:link.action action="new">New Menu</f:link.action>
 	</f:section>

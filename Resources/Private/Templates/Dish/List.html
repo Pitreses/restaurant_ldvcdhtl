@@ -13,12 +13,16 @@
 	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 	<f:section name="content">
+		<script src="https://kit.fontawesome.com/7dabd16bb0.js" crossorigin="anonymous"></script>
 		<h1>Listing for Dish</h1>
+
+		
 
 		<f:flashMessages />
 
-		<table  class="tx_restaurantldvcdhtl" >
-			<tr>
+		<table class="tx_restaurantldvcdhtl table">
+			<thead>
+			  <tr>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.name" /></th>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.description" /></th>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.photo" /></th>
@@ -27,25 +31,58 @@
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.discount" /></th>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.allergens" /></th>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_dish.frozens" /></th>
-				<th> </th>
-				<th> </th>
-			</tr>
-
-			<f:for each="{dishes}" as="dish">
-				<tr>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.name}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.description}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.photo.originalResource.name}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.type}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.price}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.discount}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.allergens}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{dish : dish}"> {dish.frozens}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{dish : dish}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{dish : dish}">Delete</f:link.action></td>
-				</tr>
-			</f:for>
-		</table>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			  </tr>
+			</thead>
+			<tbody>
+				<f:for each="{dishes}" as="dish">
+					<tr>
+						<td><f:link.action action="show" arguments="{dish : dish}"> {dish.name}</f:link.action></td>
+						<td> {dish.description -> f:format.html(parseFuncTSPath: 'lib.parseFunc')} </td>
+						<td> {dish.photo.originalResource.name} </td>
+						<td> {dish.type} </td>
+						<td> {dish.price} €</td>
+						<td> 
+							<f:if condition="{dish.discount} == 0">
+							<f:then>
+								<i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								{dish.discount} %
+							</f:else>
+						</f:if>
+						</td>
+						<td>
+							<f:if condition="{dish.allergens}">
+								<f:then>
+									{dish.allergens}
+								</f:then>
+								
+								<f:else>
+									<i class="fas fa-times"></i>
+									
+								</f:else>
+							</f:if>
+						</td>
+						<td>
+							<f:if condition="{dish.frozens} == 0">
+							<f:then>
+								<i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								<i class="fas fa-times"></i>
+							</f:else>
+						</f:if>
+						</td>
+						<td><f:link.action action="edit" arguments="{dish : dish}">Edit</f:link.action></td>
+						<td><f:link.action action="delete" arguments="{dish : dish}">Delete</f:link.action></td>
+					</tr>
+				</f:for>
+			</tbody>
+		  </table>
 
 		<f:link.action action="new">New Dish</f:link.action>
 	</f:section>
