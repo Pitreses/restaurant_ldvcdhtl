@@ -15,11 +15,73 @@
 	<f:section name="content">
 		<script src="https://kit.fontawesome.com/7dabd16bb0.js" crossorigin="anonymous"></script>
 		<h1>Listing for Dish</h1>
+		<div>
+			<f:link.action class="btn btn-primary mb-3" action="new">New Dish</f:link.action>
+		</div>
+
+		<div class="row justify-content-around">
+
+			
+
+			
+
+			  <f:for each="{dishes}" as="dish">
+				<div class="card col-4 rounded-lg" style="width: 18rem;">
+
+					<div class="card-body">
+					  <h5 class="card-title"><f:link.action action="show" arguments="{dish : dish}"> {dish.name}</f:link.action></h5>
+					  <div class="card-text row ">
+						  	<p>
+							  <b>Description : </b>
+							</p> 
+							{dish.description -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}
+					</div>
+					  <p>
+						<f:if condition="{dish.discount} == 0">
+							<f:then>
+								Discount : <i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								Discount : {dish.discount} %
+							</f:else>
+						</f:if>
+					  </p>
+					  <p>
+						<f:if condition="{dish.allergens}">
+							<f:then>
+								Allergens : {dish.allergens}
+							</f:then>
+							
+							<f:else>
+								Allergens : <i class="fas fa-times"></i>
+								
+							</f:else>
+						</f:if>
+					  </p>
+					  <p>
+						<f:if condition="{dish.frozens} == 0">
+							<f:then>
+								Frozens : <i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								Frozens : <i class="fas fa-check"></i>
+							</f:else>
+						</f:if>
+					  </p>
+					  <f:link.action class="btn btn-primary" action="show" arguments="{dish : dish}"> Show</f:link.action>
+					  <f:link.action class="btn btn-primary" action="edit" arguments="{dish : dish}">Edit</f:link.action>
+						<f:link.action class="btn btn-primary" action="delete" arguments="{dish : dish}">Delete</f:link.action>
+					</div>
+				  </div>
+			</f:for>
+		</div>
 
 		
 
 		<f:flashMessages />
-
+<!--
 		<table class="tx_restaurantldvcdhtl table">
 			<thead>
 			  <tr>
@@ -83,7 +145,8 @@
 				</f:for>
 			</tbody>
 		  </table>
+		  -->
 
-		<f:link.action action="new">New Dish</f:link.action>
+		
 	</f:section>
 </html>
