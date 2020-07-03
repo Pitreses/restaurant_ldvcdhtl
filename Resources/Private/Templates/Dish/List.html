@@ -39,22 +39,22 @@
 					  <p>
 						<f:if condition="{dish.discount} == 0">
 							<f:then>
-								Discount : <i class="fas fa-times"></i>
+								<b>Discount : </b> <i class="fas fa-times"></i>
 							</f:then>
 							
 							<f:else>
-								Discount : {dish.discount} %
+								<b>Discount : </b> {dish.discount} %
 							</f:else>
 						</f:if>
 					  </p>
 					  <p>
 						<f:if condition="{dish.allergens}">
 							<f:then>
-								Allergens : {dish.allergens}
+								<b>Allergens : </b> {dish.allergens}
 							</f:then>
 							
 							<f:else>
-								Allergens : <i class="fas fa-times"></i>
+								<b>Allergens : </b> <i class="fas fa-times"></i>
 								
 							</f:else>
 						</f:if>
@@ -62,17 +62,18 @@
 					  <p>
 						<f:if condition="{dish.frozens} == 0">
 							<f:then>
-								Frozens : <i class="fas fa-times"></i>
+								<b>Frozens : </b> <i class="fas fa-times"></i>
 							</f:then>
 							
 							<f:else>
-								Frozens : <i class="fas fa-check"></i>
+								<b>Frozens : </b> <i class="fas fa-check"></i>
 							</f:else>
 						</f:if>
 					  </p>
+					  <p> <b>Price : </b>{dish.price} €</p>
 					  <f:link.action class="btn btn-primary" action="show" arguments="{dish : dish}"> Show</f:link.action>
-					  <f:link.action class="btn btn-primary" action="edit" arguments="{dish : dish}">Edit</f:link.action>
-						<f:link.action class="btn btn-primary" action="delete" arguments="{dish : dish}">Delete</f:link.action>
+					  <f:link.action class="btn btn-secondary" action="edit" arguments="{dish : dish}">Edit</f:link.action>
+						<f:link.action class="btn btn-danger" action="delete" arguments="{dish : dish}">Delete</f:link.action>
 					</div>
 				  </div>
 			</f:for>

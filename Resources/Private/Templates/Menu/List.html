@@ -16,8 +16,60 @@
 		<script src="https://kit.fontawesome.com/7dabd16bb0.js" crossorigin="anonymous"></script>
 		<h1>Listing for Menu</h1>
 
+		<f:link.action class="btn btn-primary mb-3" action="new">New Menu</f:link.action>
+
+
 		<f:flashMessages />
 
+		<div class="row justify-content-around">
+			<f:for each="{menus}" as="menu">
+			  <div class="card col-4 rounded-lg" style="width: 18rem;">
+
+				  <div class="card-body">
+					<h5 class="card-title"><f:link.action action="show" arguments="{menu : menu}"> {menu.name}</f:link.action></h5>
+					<div class="card-text row ">
+							<p>
+							<b>Description : </b>
+						  </p> 
+						  {menu.description -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}
+				  </div>
+					<p>
+						<f:if condition="{drink.alcoholic}">
+							<f:then>
+								<b> Alcoholic : </b> {drink.alcoholic} %
+							</f:then>
+							
+							<f:else>
+								<b> Alcoholic : </b><i class="fas fa-times"></i>
+								
+							</f:else>
+						</f:if>
+					</p>
+					<p>
+						<f:if condition="{menu.available}">
+							<b>Avaialble : </b><i class="fas fa-check"></i>
+						</f:if>
+					</p>
+					<p>
+						<f:if condition="{menu.discount} == 0">
+							<f:then>
+								<b>Discount : </b><i class="fas fa-times"></i>
+							</f:then>
+							
+							<f:else>
+								<b>Discount : </b> {menu.discount} %
+							</f:else>
+						</f:if>
+					</p>
+					<p> <b> Price : </b>{menu.price} €</p>
+					<f:link.action class="btn btn-primary" action="show" arguments="{drink : drink}"> Show</f:link.action>
+					<f:link.action class="btn btn-secondary" action="edit" arguments="{drink : drink}">Edit</f:link.action>
+					  <f:link.action class="btn btn-danger" action="delete" arguments="{drink : drink}">Delete</f:link.action>
+				  </div>
+				</div>
+		  </f:for>
+	  </div>
+<!--
 		<table  class="tx_restaurantldvcdhtl table" >
 			<tr>
 				<th><f:translate key="tx_restaurantldvcdhtl_domain_model_menu.name" /></th>
@@ -59,8 +111,8 @@
 			</f:for>
 		</table>
 
-		
+	-->
 
-		<f:link.action action="new">New Menu</f:link.action>
+		
 	</f:section>
 </html>
