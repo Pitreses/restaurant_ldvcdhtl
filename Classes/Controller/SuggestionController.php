@@ -30,6 +30,7 @@ class SuggestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     protected $suggestionRepository = null;
 
+
     /**
      * action current
      * 
@@ -37,6 +38,7 @@ class SuggestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
      */
     public function currentAction()
     {
+        $this->view->assign('suggestions', $this->suggestionRepository->currents());
     }
 
     /**
